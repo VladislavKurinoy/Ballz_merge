@@ -30,7 +30,7 @@ public class MatchedCellsChecker : MonoBehaviour
                     {
                         foreach (Cell cell in connectedCells)
                         {
-                            cell.GetCellTransform().DOShakePosition(0.5f, new Vector2(0.1f, 0)).onComplete += 
+                            cell.GetCellView().BlockSprite.transform.DOShakePosition(0.5f, new Vector2(0.1f, 0)).onComplete += 
                                 () =>
                                 {
                                     cell.GetCellGameObject().SetActive(false);

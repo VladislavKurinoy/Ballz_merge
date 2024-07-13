@@ -122,9 +122,17 @@ public class CellsController : MonoBehaviour
              
              (_cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].YCoordinate, _cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].YCoordinate) = 
                  (_cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].YCoordinate, _cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].YCoordinate);
+
+             Vector3 targetCellLocalPosition = _cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].GetCellTransform().localPosition;
              
-             (_cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].GetCellTransform().localPosition, _cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].GetCellTransform().localPosition) = 
-                 (_cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].GetCellTransform().localPosition, _cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].GetCellTransform().localPosition);
+             _cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].GetCellTransform()
+	             .DOLocalMove(_cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].GetCellTransform().localPosition, 0.2f);
+
+             _cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].GetCellTransform()
+	             .DOLocalMove(targetCellLocalPosition, 0.2f);
+
+             //(_cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].GetCellTransform().localPosition, _cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].GetCellTransform().localPosition) = 
+             //    (_cellsGrid[neighbourCellFromTryingToMovePart.XCoordinate, neighbourCellFromTryingToMovePart.YCoordinate].GetCellTransform().localPosition, _cellsGrid[targetCell.XCoordinate, targetCell.YCoordinate].GetCellTransform().localPosition);
          }
          
          _matchedCellsChecker.DeactivateMatchingCells();
@@ -133,7 +141,6 @@ public class CellsController : MonoBehaviour
 
 	public void PrintArray()
 	{
-		Console.Clear();
 		int rows = _cellsGrid.GetLength(0);
 		int cols = _cellsGrid.GetLength(1);
 
