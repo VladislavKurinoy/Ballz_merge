@@ -31,7 +31,12 @@ public class MatchedCellsChecker : MonoBehaviour
                         foreach (Cell cell in connectedCells)
                         {
                             cell.GetCellTransform().DOShakePosition(0.5f, new Vector2(0.1f, 0)).onComplete += 
-                                () => cell.GetCellGameObject().SetActive(false);
+                                () =>
+                                {
+                                    cell.GetCellGameObject().SetActive(false);
+                                    cell.BlockColor = Color.clear;
+                                    cell.BlockNumber = 0;
+                                };
                         }
         
                         AudioManager.Instance.PlaySound(Constants.BlockDestroySound);

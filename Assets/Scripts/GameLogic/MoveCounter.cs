@@ -55,10 +55,8 @@ public class MoveCounter : MonoBehaviour
 
 	public void CheckForBestScore()
 	{
-		Debug.Log("???" + _moveNumber + " " + _bestScore);
 		if (_moveNumber > _bestScore)
 		{
-			Debug.Log("!!!");
 			_saveSystem.SaveData(new SaveData
 			{
 				IntValue = _moveNumber

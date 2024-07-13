@@ -20,7 +20,6 @@ public class BinarySaveSystem : MonoBehaviour
 			using (FileStream fileStream = new FileStream(_filePath, FileMode.Create))
 			{
 				formatter.Serialize(fileStream, data);
-				Debug.Log("Data saved to file.");
 			}
 		}
 		catch (IOException e)
@@ -39,19 +38,16 @@ public class BinarySaveSystem : MonoBehaviour
 				using (FileStream fileStream = new FileStream(_filePath, FileMode.Open))
 				{
 					SaveData data = (SaveData)formatter.Deserialize(fileStream);
-					Debug.Log("Data loaded from file.");
 					return data;
 				}
 			}
 			catch (IOException e)
 			{
-				Debug.LogError("An error occurred while loading the data: " + e.Message);
 				return null;
 			}
 		}
 		else
 		{
-			Debug.LogWarning("File does not exist.");
 			return new SaveData();
 		}
 	}

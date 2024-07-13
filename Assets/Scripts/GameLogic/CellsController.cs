@@ -2,6 +2,7 @@ using System;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -68,6 +69,8 @@ public class CellsController : MonoBehaviour
 			_cellsGrid[0, j].YCoordinate = tempRow[j].YCoordinate;
 			_cellsGrid[0, j].GetCellTransform().localPosition = tempRow[j].GetCellTransform().localPosition;
 		}
+		
+		PrintArray();
 	}
 	
 	public void GenerateLine()
@@ -127,4 +130,21 @@ public class CellsController : MonoBehaviour
          _matchedCellsChecker.DeactivateMatchingCells();
          _gameOverChecker.CheckForGameOver();
     }
+
+	public void PrintArray()
+	{
+		Console.Clear();
+		int rows = _cellsGrid.GetLength(0);
+		int cols = _cellsGrid.GetLength(1);
+
+		for (int i = 0; i < rows; i++)
+		{
+			string row = "";
+			for (int j = 0; j < cols; j++)
+			{
+				row += _cellsGrid[i, j].BlockNumber + " ";
+			}
+			Debug.Log(row.Trim());
+		}
+	}
 }
