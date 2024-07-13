@@ -1,17 +1,16 @@
-using System;
 using UnityEngine;
 
 public class TrajectoryPredictor : MonoBehaviour
 {
     [SerializeField] GameStateMachine _gameStateMachine;
     [SerializeField] Transform _gameLauncherObject;
-    [SerializeField] InputDetector _inputDetector;
     [SerializeField] LineRenderer _lineRenderer;
     [SerializeField] int _predictedTrajectoryDistance;
     [SerializeField] int _numberOfReflections;
     
     Vector3 _position;
-    Vector3 _directionEmission = new Vector3();
+    Vector3 _directionEmission;
+    Vector2 _inputDirection;
     bool _loopActive = true;
 
     void OnEnable()
@@ -39,7 +38,7 @@ public class TrajectoryPredictor : MonoBehaviour
         _loopActive = true;
         int count = 1;
         _position = _gameLauncherObject.transform.position;
-        _directionEmission = _inputDetector.MousePosition - (Vector2)_position;
+        _directionEmission = _inputDirection - (Vector2)_position;
         _lineRenderer.positionCount = count;
         _lineRenderer.SetPosition(0, _position);
         while (_loopActive)
@@ -69,5 +68,10 @@ public class TrajectoryPredictor : MonoBehaviour
                 _loopActive = false;
             }
         }
+    }
+
+    public void SetEmissionDirection(Vector2 mousePosition)
+    {
+        _inputDirection = mousePosition;
     }
 }

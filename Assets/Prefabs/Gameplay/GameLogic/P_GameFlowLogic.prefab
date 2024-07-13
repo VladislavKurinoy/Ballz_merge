@@ -80,6 +80,9 @@ MonoBehaviour:
     ResponseInt:
       m_PersistentCalls:
         m_Calls: []
+    ResponseVector2:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1369141815633288588
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2e48b0c0a797f4e8f7db4a6343b11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMouseDrag: {fileID: 11400000, guid: 05eae69ca26dbbf4192f792a49ec0d33, type: 2}
   OnMouseButtonPressed: {fileID: 11400000, guid: c4b9e1dd3c7c11f4a8f034ae3ee8a121,
     type: 2}
 --- !u!1 &1785042351625666928
@@ -545,6 +549,9 @@ MonoBehaviour:
     ResponseInt:
       m_PersistentCalls:
         m_Calls: []
+    ResponseVector2:
+      m_PersistentCalls:
+        m_Calls: []
   - Event: {fileID: 11400000, guid: 92e3de2647d8173439a967b8c585b499, type: 2}
     Response:
       m_PersistentCalls:
@@ -565,6 +572,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     ResponseInt:
+      m_PersistentCalls:
+        m_Calls: []
+    ResponseVector2:
       m_PersistentCalls:
         m_Calls: []
 --- !u!1 &6613106696624786202
@@ -759,7 +769,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameStateMachine: {fileID: 7607414813416194609}
   _gameLauncherObject: {fileID: 0}
-  _inputDetector: {fileID: 7658163271672997274}
   _lineRenderer: {fileID: 0}
   _predictedTrajectoryDistance: 5
   _numberOfReflections: 2
@@ -813,6 +822,46 @@ MonoBehaviour:
     ResponseInt:
       m_PersistentCalls:
         m_Calls: []
+    ResponseVector2:
+      m_PersistentCalls:
+        m_Calls: []
+  - Event: {fileID: 11400000, guid: 05eae69ca26dbbf4192f792a49ec0d33, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls: []
+    ResponseFloat:
+      m_PersistentCalls:
+        m_Calls: []
+    ResponseInt:
+      m_PersistentCalls:
+        m_Calls: []
+    ResponseVector2:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6096728496466303604}
+          m_TargetAssemblyTypeName: BallLauncher, Assembly-CSharp
+          m_MethodName: SetDirection
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8314892398913787991}
+          m_TargetAssemblyTypeName: TrajectoryPredictor, Assembly-CSharp
+          m_MethodName: SetEmissionDirection
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8316515427194660378
 GameObject:
   m_ObjectHideFlags: 0

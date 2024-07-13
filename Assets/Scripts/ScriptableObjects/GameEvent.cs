@@ -28,6 +28,12 @@ public class GameEvent : ScriptableObject
             _listeners[i].OnEventInvoked(value);
     }
 
+    public virtual void Invoke(Vector2 value)
+    {
+        for (int i = _listeners.Count - 1; i >= 0; i--)
+            _listeners[i].OnEventInvoked(value);
+    }
+
     public void RegisterListener(GameEventItemListener gameEventListener)
     {
         if(!_listeners.Contains(gameEventListener)) _listeners.Add(gameEventListener);

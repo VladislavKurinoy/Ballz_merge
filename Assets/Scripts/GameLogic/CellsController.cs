@@ -1,10 +1,7 @@
-using System;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CellsController : MonoBehaviour
 {
@@ -70,7 +67,7 @@ public class CellsController : MonoBehaviour
 			_cellsGrid[0, j].GetCellTransform().localPosition = tempRow[j].GetCellTransform().localPosition;
 		}
 		
-		PrintArray();
+		//PrintArray();
 	}
 	
 	public void GenerateLine()

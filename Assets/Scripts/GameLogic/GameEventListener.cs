@@ -32,6 +32,7 @@ public class GameEventItemListener
 	public UnityEvent Response = new UnityEvent();
 	public FloatEvent ResponseFloat = new FloatEvent();
 	public IntEvent ResponseInt = new IntEvent();
+	public Vector2Event ResponseVector2 = new Vector2Event();
 	
 	public virtual void OnEventInvoked()
 	{
@@ -47,7 +48,14 @@ public class GameEventItemListener
 	{
 		ResponseInt.Invoke(value);
 	}
+
+	public virtual void OnEventInvoked(Vector2 value)
+	{
+		ResponseVector2.Invoke(value);
+	}
 }
 
 [Serializable] public class IntEvent : UnityEvent<int> { }
 [Serializable] public class FloatEvent : UnityEvent<float> { }
+
+[Serializable] public class Vector2Event : UnityEvent<Vector2> { }

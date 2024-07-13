@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 
 public class InputDetector : MonoBehaviour
 {
-	public Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+	public GameEvent OnMouseDrag;
 	public GameEvent OnMouseButtonPressed;
 	
 	void Update()
@@ -13,5 +11,7 @@ public class InputDetector : MonoBehaviour
 		{
 			OnMouseButtonPressed?.Invoke();
 		}
+		
+		OnMouseDrag?.Invoke(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 	}
 }
